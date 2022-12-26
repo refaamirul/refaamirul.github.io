@@ -503,6 +503,16 @@
       const btnKirim = document.querySelector('.btn-kirim');
       const btnLoading = document.querySelector('.btn-loading');
       const myAlert = document.querySelector('.my-alert');
+
+      function captureName() {
+      // Menangkap input dengan nama "name"
+      var name = document.getElementsByName("name")[0].value;
+
+      // Memasukkan isi dari input ke dalam tag strong
+      // document.getElementById("nama-anda").innerHTML = name;
+      var str = document.getElementsByTagName("strong");
+
+    }
     
       form.addEventListener('submit', e => {
         e.preventDefault()
