@@ -903,6 +903,10 @@ video {
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
 }
 
+.bg-none {
+  background-image: none;
+}
+
 .fill-current {
   fill: currentColor;
 }

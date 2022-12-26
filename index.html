@@ -338,23 +338,26 @@
             <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, laudantium.</p>
           </div>
         </div>
-
-        <form>
+        <div class="lg:h-50 trasition btn-alert mb-5 hidden w-full rounded-lg bg-dark py-3 px-8 text-base font-semibold text-white duration-500 hover:opacity-80 hover:shadow-lg lg:mx-auto lg:w-2/3 my-alert">
+          Terimakasih! <strong id="nama-anda"></strong> pesan anda telah kami terima..
+        </div>
+        <form name="portfolio-contact-form-refa">
           <div class="w-full lg:mx-auto lg:w-2/3">
             <div class="mb-8 w-full px-4">
               <label for="name" class="text-base font-bold text-primary">Nama</label>
-              <input type="text" id="name" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+              <input type="text" id="name" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" name="nama" />
             </div>
             <div class="mb-8 w-full px-4">
               <label for="email" class="text-base font-bold text-primary">Email</label>
-              <input type="email" id="email" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+              <input type="email" id="email" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" name="email" />
             </div>
             <div class="mb-8 w-full px-4">
               <label for="message" class="text-base font-bold text-primary">Pesan</label>
-              <textarea type="email" id="email" class="h-32 w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+              <textarea type="email" id="email" class="h-32 w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" name="pesan"></textarea>
             </div>
             <div class="w-full px-4">
-              <button class="w-full rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg">Kirim</button>
+              <button type="submit" class="w-full rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg btn-kirim">Kirim</button>
+              <button type="submit" class="trasition btn-loading w-full rounded-full bg-primary py-3 px-8 text-base font-semibold text-white duration-500 hover:opacity-80 hover:shadow-lg hidden">Loading..</button>
             </div>
           </div>
         </form>
@@ -493,5 +496,33 @@
     <!-- Back to the End -->
 
     <script src="dist/js/script.js"></script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzzzkbGx_eTeTjfILw9sCVO5dyU7ZRTWb-Nm4djfxwf417XyBW2dcjSzHl1TZrnwpuV/exec'
+      const form = document.forms['portfolio-contact-form-refa'];
+      const btnKirim = document.querySelector('.btn-kirim');
+      const btnLoading = document.querySelector('.btn-loading');
+      const myAlert = document.querySelector('.my-alert');
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        // ketika tombol submit diklik
+        // tambahkan tombol loading, hilangkan tombol kirim
+        btnLoading.classList.toggle('hidden');
+        btnKirim.classList.toggle('hidden');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            // tambahkan tombol kirim, hilangkan tombol loading
+            btnLoading.classList.toggle('hidden');
+        btnKirim.classList.toggle('hidden');
+        // tampilkan alert
+        myAlert.classList.toggle('hidden');
+        // reset formnya
+        form.reset();
+            console.log('Success!', response)
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
