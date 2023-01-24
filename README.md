@@ -8,7 +8,7 @@
 </div>
 </div>
 
-[![Linkedin: Irfnmdlptra](https://img.shields.io/badge/-irfn-red?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/moch-refa-amirul-202a19251/)](https://www.linkedin.com/in/moch-refa-amirul-202a19251//) &nbsp;
+[![Linkedin: Moch. Refa Amirul](https://img.shields.io/badge/-refa-red?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/moch-refa-amirul-202a19251/)](https://www.linkedin.com/in/moch-refa-amirul-202a19251//) &nbsp;
 ![GitHub followers](https://img.shields.io/github/followers/amajaying?label=Follow&style=social) &nbsp;
 <img alt = "profile views" src="https://komarev.com/ghpvc/?username=amajaying&color=brightgreen">
 
